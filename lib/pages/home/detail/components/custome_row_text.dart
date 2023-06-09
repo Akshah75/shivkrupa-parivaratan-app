@@ -11,12 +11,15 @@ class CustomeRowtext extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size.width;
+    print(size * 0.639);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 115,
+          // width: 115,
+          width: size * 0.25,
           child: Text(
             title,
             style: const TextStyle(
@@ -26,7 +29,8 @@ class CustomeRowtext extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 250,
+          // width: 250,
+          width: size * 0.639,
           child: Text(
             subTitle,
           ),

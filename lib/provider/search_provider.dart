@@ -43,7 +43,7 @@ class SearchProvider extends ChangeNotifier {
         notifyListeners();
         //current page
         currentPage = 0;
-        var current = value['data']['from'];
+        var current = value['data']['current_page'];
         currentPage = current;
         print('total:$currentPage');
         notifyListeners();
@@ -76,28 +76,27 @@ class SearchProvider extends ChangeNotifier {
   }
 
   void changePage(int index) {
-    print('myCur:$currentPage');
+    // print('myCur:$currentPage');
     currentPage = index;
     notifyListeners();
-    print('my$currentPage');
+    // print('my$currentPage');
   }
 
   Future<void> getPaginationData(int index, BuildContext context) async {
-    print("link.length:${link.length}");
     var urlLink =
         'https://parivartan.artisansintelligence.com/api/search?page=$index';
-    print(urlLink);
-    // urlList['url']
-    var urlList = link[index];
 
-    print(urlList);
-    print(urlList[link]);
-    if (urlList['url'] == null) {
-      isActive = false;
-      print(isActive);
-      notifyListeners();
-      Utils.flushBarErrorMessage('Please Go next Page', context);
-    }
+    // urlList['url']
+    // var urlList = link[index];
+
+    // print(urlList);
+    // print(urlList[link]);
+    // if (urlList['url'] == null) {
+    //   isActive = false;
+    //   print(isActive);
+    //   notifyListeners();
+    //   Utils.flushBarErrorMessage('Please Go next Page', context);
+    // }
     myRepo.apiServices
         .getPostResponseForSearch(
             urlLink, LoginProvider.appLoginToken.toString())

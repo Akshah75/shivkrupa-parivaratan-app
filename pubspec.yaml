@@ -51,6 +51,8 @@ dependencies:
   whatsapp_share: ^2.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_web_pagination: ^0.0.3
+  pager: ^0.0.5
+  # whatsapp: ^0.0.1
 
 dev_dependencies:
   flutter_test:
