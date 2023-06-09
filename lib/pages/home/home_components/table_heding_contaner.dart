@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:parivartan_app/pages/home/home_components/table_name.dart';
-
 import '../../../constant.dart';
 import 'custome_heading_container.dart';
 
@@ -26,25 +25,25 @@ class TableHedingOfHomepage extends StatelessWidget {
           const CustomeHedingContainer(
             aligment: Alignment.centerLeft,
             w: 65,
-            title: 'Member id',
+            title: 'सभासद क्',
           ),
           const SizedBox(width: 15),
           Container(
             alignment: Alignment.centerLeft,
             width: 50,
             child: const TabelName(
-              name: 'Sr no ',
+              name: 'मतदार क्',
               color: whiteColor,
             ),
           ),
           const SizedBox(width: 25),
           const CustomeHedingContainer(
             w: 50,
-            title: 'Name',
+            title: 'नाव',
           ),
           const SizedBox(width: 108),
           const TabelName(
-            name: 'Branch',
+            name: 'शाखा',
             color: whiteColor,
           ),
         ],

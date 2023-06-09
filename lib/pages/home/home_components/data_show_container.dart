@@ -43,15 +43,6 @@ class DataShowContainer extends StatelessWidget {
                 color: greyColor,
                 subColor: Colors.transparent,
               ),
-              // TabelName(
-              //   name: data['memebr_id'].toString(),
-              //   color: greyColor,
-              // ),
-
-              // TabelName(
-              //   name: data['sr_no'].toString(),
-              //   color: greyColor,
-              // ),
               const SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,23 +59,30 @@ class DataShowContainer extends StatelessWidget {
                 ],
               ),
               const SizedBox(width: 10),
-
               Expanded(
                 child: CustomeHedingContainer(
-                    subColor: Colors.transparent,
-                    color: greyColor,
-                    aligment: Alignment.centerRight,
-                    w: 45,
-                    title: data['branch']['name'].toString()),
-              ),
+                  subColor: Colors.transparent,
+                  color: greyColor,
+                  aligment: Alignment.centerRight,
+                  w: 45,
+                  title: data['branch']['name'].toString(),
+                ),
 
-              // TabelName(
-              //   name: data['branch']['name'].toString(),
-              //   color: greyColor,
-              // ),
+                //  Column(
+                //   children: [
+
+                //     // CustomeHedingContainer(
+                //     //   subColor: Colors.transparent,
+                //     //   color: greyColor,
+                //     //   aligment: Alignment.centerRight,
+                //     //   w: 45,
+                //     //   title: data['Mobile_no'].toString(),
+                //     // ),
+                //   ],
+                // ),
+              ),
             ],
           ),
-          // const Divider(),
         ],
       ),
     );

@@ -100,6 +100,8 @@ class LoginProvider with ChangeNotifier {
               'Branch',
           'Division',
           'Company'
+              'Aadhar no'
+              'Pan no'
         ];
         listOfList = [];
         listOfList.add(data);
@@ -119,6 +121,8 @@ class LoginProvider with ChangeNotifier {
             member['branch']['name'].toString(),
             member['division']['name'].toString(),
             member['company'].toString(),
+            member['pan'].toString(),
+            member['aadhar'].toString(),
           ];
           listOfList.add(newData);
           print('New list: $listOfList');

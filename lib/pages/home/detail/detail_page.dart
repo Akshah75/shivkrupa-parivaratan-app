@@ -137,6 +137,18 @@ class _DetailPageState extends State<DetailPage> {
                               ? '-'
                               : widget.data['division']['name']),
                       const SizedBox(height: 15),
+                      CustomeRowtext(
+                          title: 'Pan no',
+                          subTitle: widget.data['pan'].toString() == 'null'
+                              ? '-'
+                              : widget.data['pan'].toString()),
+                      const SizedBox(height: 15),
+                      CustomeRowtext(
+                          title: 'Aadhar no',
+                          subTitle: widget.data['aadhar'].toString() == 'null'
+                              ? '-'
+                              : widget.data['aadhar'].toString()),
+                      const SizedBox(height: 15),
                     ],
                     //
                   ),
