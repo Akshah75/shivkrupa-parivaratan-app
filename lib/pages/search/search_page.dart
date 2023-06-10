@@ -31,7 +31,7 @@ class SearchPage extends StatelessWidget {
               const SizedBox(height: 10),
               CustomeTextField(
                 hintText: 'Member id',
-                icon: Icons.email,
+                icon: Icons.person,
                 controller: searchProvider.memberId,
               ),
               const SizedBox(height: 10),
@@ -53,12 +53,12 @@ class SearchPage extends StatelessWidget {
                 controller: searchProvider.companyName,
               ),
               const SizedBox(height: 10),
-              CustomeTextField(
-                hintText: 'Branch name',
-                icon: Icons.person_4_sharp,
-                controller: searchProvider.branchName,
-              ),
-              const SizedBox(height: 10),
+              // CustomeTextField(
+              //   hintText: 'Branch name',
+              //   icon: Icons.person_4_sharp,
+              //   controller: searchProvider.branchName,
+              // ),
+              // const SizedBox(height: 10),
               CustomeTextField(
                 hintText: 'Address 1',
                 icon: Icons.location_city,

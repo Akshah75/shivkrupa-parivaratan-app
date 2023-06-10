@@ -65,23 +65,30 @@ class _HomePageState extends State<HomePage> {
                       ),
                       searchProvider.isActive == true
                           ? const Center(child: CircularProgressIndicator())
-                          : ListView.builder(
-                              itemCount: searchProvider.listofBranchData.length,
-                              itemBuilder: (context, index) {
-                                var data =
-                                    searchProvider.listofBranchData[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                          builder: (context) => DetailPage(
-                                                data: data,
-                                              )),
+                          : ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                              child: ListView.builder(
+                                  itemCount:
+                                      searchProvider.listofBranchData.length,
+                                  itemBuilder: (context, index) {
+                                    var data =
+                                        searchProvider.listofBranchData[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) => DetailPage(
+                                                    data: data,
+                                                  )),
+                                        );
+                                      },
+                                      child: DataShowContainer(data: data),
                                     );
-                                  },
-                                  child: DataShowContainer(data: data),
-                                );
-                              }),
+                                  }),
+                            ),
                     ],
                   ),
                 ),

@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:parivartan_app/pages/home/detail/components/custome_row_text.dart';
 import 'package:parivartan_app/utlity/utility.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constant.dart';
 
-class DetailPage extends StatefulWidget {
+class DetailPage extends StatelessWidget {
   const DetailPage({super.key, this.data});
-  // ignore: prefer_typing_uninitialized_variables
   final data;
-
-  @override
-  State<DetailPage> createState() => _DetailPageState();
-}
-
-class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     // final loginDataProvider = Provider.of<LoginProvider>(context, listen: true);
     return Scaffold(
-      // backgroundColor: kBackgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kPrimaryColor,
@@ -47,108 +40,76 @@ class _DetailPageState extends State<DetailPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomeRowtext(
+                          title: 'Sr no',
+                          subTitle: data['sr_no'].toString() == 'null'
+                              ? '-'
+                              : data['sr_no'].toString()),
+                      const SizedBox(height: 15),
+                      CustomeRowtext(
                         title: 'Member Id',
-                        subTitle: widget.data['memebr_id'].toString() == 'null'
+                        subTitle: data['memebr_id'].toString() == 'null'
                             ? '-'
-                            : widget.data['memebr_id'].toString(),
+                            : data['memebr_id'].toString(),
                       ),
                       const SizedBox(height: 15),
                       CustomeRowtext(
-                          title: 'Sr no',
-                          subTitle: widget.data['sr_no'].toString() == 'null'
-                              ? '-'
-                              : widget.data['sr_no'].toString()),
+                        title: 'Name',
+                        subTitle: data['English_name'] == 'null'
+                            ? '-'
+                            : data['English_name'],
+                      ),
                       const SizedBox(height: 15),
                       CustomeRowtext(
-                          title: 'Name',
-                          subTitle: widget.data['English_name'] == 'null'
-                              ? '-'
-                              : widget.data['English_name']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Marathi name',
-                          subTitle: widget.data['Marathi_name'] == 'null'
-                              ? '-'
-                              : widget.data['Marathi_name']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Address',
-                          subTitle: widget.data['English_add'] == 'null'
-                              ? '-'
-                              : widget.data['English_add']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Voating address',
-                          subTitle: widget.data['voting_add'] == 'null'
-                              ? '-'
-                              : widget.data['voting_add']),
+                        title: 'Marathi name',
+                        subTitle: data['Marathi_name'] == 'null'
+                            ? '-'
+                            : data['Marathi_name'],
+                      ),
                       const SizedBox(height: 15),
                       CustomeRowtext(
                           title: 'Marathi address',
-                          subTitle: widget.data['Marathi_add'] == 'null'
+                          subTitle: data['Marathi_add'] == 'null'
                               ? '-'
-                              : widget.data['Marathi_add']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Booth no',
-                          subTitle: widget.data['booth_no'].toString() == 'null'
-                              ? '-'
-                              : widget.data['booth_no'].toString()),
+                              : data['Marathi_add']),
                       const SizedBox(height: 15),
                       CustomeRowtext(
                           title: 'Mobile no',
-                          subTitle: widget.data['Mobile_no'] == ''
+                          subTitle: data['Mobile_no'] == ''
                               ? '-'
-                              : widget.data['Mobile_no'].toString()),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Branch',
-                          subTitle: widget.data['branch']['name'] == 'null'
-                              ? '-'
-                              : widget.data['branch']['name']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Agent name',
-                          subTitle: widget.data['Agent_name'] == ''
-                              ? '-'
-                              : widget.data['Agent_name']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Agent branch',
-                          subTitle: widget.data['Agent_branch'] == ''
-                              ? '-'
-                              : widget.data['Agent_branch']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Company',
-                          subTitle: widget.data['village'] == 'null'
-                              ? '-'
-                              : widget.data['village']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Village',
-                          subTitle: widget.data['village'] == 'null'
-                              ? '-'
-                              : widget.data['village']),
-                      const SizedBox(height: 15),
-                      CustomeRowtext(
-                          title: 'Division',
-                          subTitle: widget.data['division']['name'] == 'null'
-                              ? '-'
-                              : widget.data['division']['name']),
+                              : data['Mobile_no'].toString()),
                       const SizedBox(height: 15),
                       CustomeRowtext(
                           title: 'Pan no',
-                          subTitle: widget.data['pan'].toString() == 'null'
+                          subTitle: data['pan'].toString() == 'null'
                               ? '-'
-                              : widget.data['pan'].toString()),
+                              : data['pan'].toString()),
                       const SizedBox(height: 15),
                       CustomeRowtext(
                           title: 'Aadhar no',
-                          subTitle: widget.data['aadhar'].toString() == 'null'
+                          subTitle: data['aadhar'].toString() == 'null'
                               ? '-'
-                              : widget.data['aadhar'].toString()),
+                              : data['aadhar'].toString()),
                       const SizedBox(height: 15),
+                      CustomeRowtext(
+                          title: 'Branch',
+                          subTitle: data['branch']['name'] == 'null'
+                              ? '-'
+                              : data['branch']['name']),
+                      const SizedBox(height: 15),
+                      CustomeRowtext(
+                        title: 'Voating address',
+                        subTitle: data['voting_add'] == 'null'
+                            ? '-'
+                            : data['voting_add'],
+                        fontWeight: FontWeight.bold,
+                      ),
+                      const SizedBox(height: 15),
+                      CustomeRowtext(
+                        title: 'Agent name',
+                        subTitle: data['Agent_name'] == ''
+                            ? '-'
+                            : data['Agent_name'].toString(),
+                      ),
                     ],
                     //
                   ),
@@ -156,35 +117,79 @@ class _DetailPageState extends State<DetailPage> {
               ),
               //
               const SizedBox(height: 40),
-              GestureDetector(
-                onTap: () async {
-                  if (widget.data['Mobile_no'].toString() == '') {
-                    Utils.flushBarErrorMessage(
-                        "Don't have Mobile Number?", context);
-                  } else {
-                    shareFile(widget.data);
-                  }
-                },
-                child: Container(
-                    height: 50,
-                    width: 50,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: whiteColor.withOpacity(0.9),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const SizedBox(
-                      height: 10,
-                      width: 10,
-                      child: Image(
-                        width: 10,
-                        color: Colors.green,
-                        image: AssetImage(
-                          whatsapp,
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () async {
+                      if (data['Mobile_no'].toString() == '') {
+                        Utils.flushBarErrorMessage(
+                            "Don't have Mobile Number?", context);
+                      } else {
+                        shareFile(data);
+                      }
+                    },
+                    child: Container(
+                        height: 50,
+                        width: 50,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: whiteColor.withOpacity(0.9),
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                      ),
-                    )),
-              ),
+                        child: const SizedBox(
+                          height: 10,
+                          width: 10,
+                          child: Image(
+                            width: 10,
+                            color: Colors.green,
+                            image: AssetImage(
+                              whatsapp,
+                            ),
+                          ),
+                        )),
+                  ),
+                  const SizedBox(width: 40),
+                  GestureDetector(
+                    onTap: () async {
+                      if (data['Mobile_no'].toString() == '') {
+                        Utils.flushBarErrorMessage(
+                            "Don't have Mobile Number?", context);
+                      } else {
+                        callNumber(data, context);
+                      }
+                    },
+                    child: Container(
+                        height: 50,
+                        width: 50,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: whiteColor.withOpacity(0.9),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const SizedBox(
+                          height: 10,
+                          width: 10,
+                          child: Image(
+                            width: 10,
+                            color: Colors.blue,
+                            image: AssetImage(
+                              call,
+                            ),
+                          ),
+                        )),
+                  ),
+                ],
+              )
+
+              //
+              // TextButton(
+              //     onPressed: () {
+              //       callNumber(data, context);
+              //     },
+              //     child: Text(
+              //       'call',
+              //       style: TextStyle(color: redColor),
+              //     ))
             ],
           ),
         ),
@@ -192,26 +197,35 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
+  //
+  callNumber(var data, BuildContext context) async {
+    var phoneNumber = data['Mobile_no'];
+    // if (phoneNumber.toString() == '') {
+    //   Utils.flushBarErrorMessage("Don't have Mobile Number?", context);
+    // }
+    var number = phoneNumber; //set the number here
+    var res = await FlutterPhoneDirectCaller.callNumber(number);
+    print(res);
+  }
+
+//
   Future<void> shareFile(var data) async {
-    String phone = widget.data['Mobile_no'];
+    String phone = data['Mobile_no'];
 
-    String voterName = widget.data['English_name'];
-    String voterMarathiName = widget.data['Marathi_name'];
-    String memberId = widget.data['memebr_id'].toString() == 'null'
+    String voterName = data['English_name'];
+    String voterMarathiName = data['Marathi_name'];
+    String memberId = data['memebr_id'].toString() == 'null'
         ? '-'
-        : widget.data['memebr_id'].toString();
-    String mobileNo = widget.data['Mobile_no'].toString() == 'null'
-        ? '-'
-        : widget.data['Mobile_no'];
+        : data['memebr_id'].toString();
+    String mobileNo =
+        data['Mobile_no'].toString() == 'null' ? '-' : data['Mobile_no'];
 
-    String votingAdd = widget.data['voting_add'];
-    String branchName = widget.data['branch']['name'] == 'null'
-        ? '-'
-        : widget.data['branch']['name'];
+    String votingAdd = data['voting_add'];
+    String branchName =
+        data['branch']['name'] == 'null' ? '-' : data['branch']['name'];
 
-    String srNo = widget.data['sr_no'].toString() == 'null'
-        ? '-'
-        : widget.data['sr_no'].toString();
+    String srNo =
+        data['sr_no'].toString() == 'null' ? '-' : data['sr_no'].toString();
 
     // String head =
     //     "शिवकृपा सरकारी पतपेढी लि. मुंबई पंचवार्षिक निवडणूक २०२३-२८ संस्थापक सहकार परिवर्तन पॅनल";

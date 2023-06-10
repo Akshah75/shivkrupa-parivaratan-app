@@ -5,9 +5,11 @@ class CustomeRowtext extends StatelessWidget {
     super.key,
     required this.title,
     required this.subTitle,
+    this.fontWeight = FontWeight.normal,
   });
 
   final String title, subTitle;
+  final FontWeight fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,7 @@ class CustomeRowtext extends StatelessWidget {
           width: size * 0.639,
           child: Text(
             subTitle,
+            style: TextStyle(fontWeight: fontWeight),
           ),
         ),
       ],

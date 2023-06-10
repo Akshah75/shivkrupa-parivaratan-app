@@ -70,7 +70,7 @@ class NetworkApiServices extends BaseApiServices {
         "Content-Type": "application/json",
         "Accept": "application/json",
         'Authorization': 'Bearer $token',
-      });
+      }).timeout(Duration(seconds: 10));
       print(data);
       responseJson = returnResponse(response);
     } on SocketException {

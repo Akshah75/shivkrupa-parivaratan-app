@@ -90,18 +90,16 @@ class LoginProvider with ChangeNotifier {
           'Village',
           'SR No',
           'Member ID',
-          'Mr Name',
-          'Mr Address',
           'Mobile Number',
-          'En Name',
+          'Aadhar no'
+              'Pan no'
+              'En Name',
           'En Address',
           'Agent Name',
           'Agent Branch'
               'Branch',
           'Division',
           'Company'
-              'Aadhar no'
-              'Pan no'
         ];
         listOfList = [];
         listOfList.add(data);
@@ -111,8 +109,8 @@ class LoginProvider with ChangeNotifier {
             member['village'].toString(),
             member['sr_no'].toString(),
             member['memebr_id'].toString(),
-            member['Marathi_name'].toString(),
-            member['Marathi_add'].toString(),
+            member['pan'].toString(),
+            member['aadhar'].toString(),
             member['Mobile_no'].toString(),
             member['English_name'].toString(),
             member['English_add'].toString(),
@@ -121,14 +119,10 @@ class LoginProvider with ChangeNotifier {
             member['branch']['name'].toString(),
             member['division']['name'].toString(),
             member['company'].toString(),
-            member['pan'].toString(),
-            member['aadhar'].toString(),
           ];
           listOfList.add(newData);
           print('New list: $listOfList');
           notifyListeners();
-          // isLoading = false;
-          // notifyListeners();
         }
         listOfData = 0;
         listOfData = listOfList.length;

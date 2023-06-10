@@ -19,34 +19,50 @@ class TableHedingOfHomepage extends StatelessWidget {
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const CustomeHedingContainer(
-            aligment: Alignment.centerLeft,
-            w: 65,
-            title: 'सभासद क्',
-          ),
-          const SizedBox(width: 15),
-          Container(
-            alignment: Alignment.centerLeft,
-            width: 50,
-            child: const TabelName(
-              name: 'मतदार क्',
-              color: whiteColor,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              width: 50,
+              child: const TabelName(
+                name: 'मतदार क्',
+                color: whiteColor,
+              ),
             ),
-          ),
-          const SizedBox(width: 25),
-          const CustomeHedingContainer(
-            w: 50,
-            title: 'नाव',
-          ),
-          const SizedBox(width: 108),
-          const TabelName(
-            name: 'शाखा',
-            color: whiteColor,
-          ),
-        ],
+            const SizedBox(width: 20),
+            const CustomeHedingContainer(
+              aligment: Alignment.centerLeft,
+              w: 65,
+              title: 'सभासद क्',
+            ),
+            const SizedBox(width: 20),
+            const CustomeHedingContainer(
+              w: 50,
+              title: 'नाव',
+            ),
+            const SizedBox(width: 100),
+            const CustomeHedingContainer(
+              aligment: Alignment.centerLeft,
+              w: 65,
+              title: 'मोबाइल न',
+            ),
+            const SizedBox(width: 20),
+            const CustomeHedingContainer(
+              aligment: Alignment.centerLeft,
+              w: 65,
+              title: 'पॅन क्र',
+            ),
+            const SizedBox(width: 20),
+            const CustomeHedingContainer(
+              aligment: Alignment.centerLeft,
+              w: 65,
+              title: 'आधार क्र',
+            ),
+          ],
+        ),
       ),
     );
   }
