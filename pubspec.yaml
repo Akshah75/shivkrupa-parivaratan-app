@@ -48,7 +48,7 @@ dependencies:
   # google_fonts: ^4.0.5
   number_paginator: ^0.2.3
   url_launcher: ^6.1.11
-  whatsapp_share: ^2.0.1
+  # whatsapp_share: ^2.0.1
   flutter_launcher_icons: ^0.13.1
   flutter_web_pagination: ^0.0.3
   pager: ^0.0.5
