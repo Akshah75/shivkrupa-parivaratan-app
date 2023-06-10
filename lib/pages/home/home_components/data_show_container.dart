@@ -61,12 +61,15 @@ class DataShowContainer extends StatelessWidget {
                 ),
                 const SizedBox(width: 40),
                 CustomeHedingContainer(
-                  subColor: Colors.transparent,
-                  color: greyColor,
-                  aligment: Alignment.topLeft,
-                  w: 80,
-                  title: data['Mobile_no'].toString(),
-                ),
+                    subColor: Colors.transparent,
+                    color: greyColor,
+                    aligment: Alignment.topLeft,
+                    w: 80,
+                    title: data['Mobile_no'].toString()
+                    // == ''
+                    // ? '-'
+                    // : data['Mobile_no'].toString(),
+                    ),
                 const SizedBox(width: 40),
                 CustomeHedingContainer(
                   subColor: Colors.transparent,

@@ -37,87 +37,97 @@ class _HomePageState extends State<HomePage> {
     print('build');
     final searchProvider = Provider.of<SearchProvider>(context, listen: true);
     final loginDataProvider = Provider.of<LoginProvider>(context, listen: true);
-    return Scaffold(
-      backgroundColor: kPrimaryColor,
-      appBar: appBar(searchProvider, loginDataProvider, context),
-      body: Column(
-        children: [
-          SearchContainer(press: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SearchPage()));
-          }),
-          const TableHedingOfHomepage(),
-          const SizedBox(height: 2),
-          searchProvider.currentPage == 0
-              ? const NoDataFoundContainer()
-              : Expanded(
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: kBackgroundColor,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
-                          ),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        backgroundColor: kPrimaryColor,
+        appBar: appBar(searchProvider, loginDataProvider, context),
+        body: Column(
+          children: [
+            SearchContainer(press: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const SearchPage()));
+            }),
+            const TableHedingOfHomepage(),
+            const SizedBox(height: 2),
+            searchProvider.currentPage == 0
+                ? const HomeCircularProgressContainer()
+                : searchProvider.listofBranchData.isEmpty
+                    ? const NoDataFoundContainer()
+                    : Expanded(
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                color: kBackgroundColor,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                            searchProvider.isActive == true
+                                ? const Center(
+                                    child: CircularProgressIndicator())
+                                : ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                    ),
+                                    child: ListView.builder(
+                                        itemCount: searchProvider
+                                            .listofBranchData.length,
+                                        itemBuilder: (context, index) {
+                                          var data = searchProvider
+                                              .listofBranchData[index];
+                                          return GestureDetector(
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        DetailPage(
+                                                          data: data,
+                                                        )),
+                                              );
+                                            },
+                                            child:
+                                                DataShowContainer(data: data),
+                                          );
+                                        }),
+                                  ),
+                          ],
                         ),
                       ),
-                      searchProvider.isActive == true
-                          ? const Center(child: CircularProgressIndicator())
-                          : ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
-                              child: ListView.builder(
-                                  itemCount:
-                                      searchProvider.listofBranchData.length,
-                                  itemBuilder: (context, index) {
-                                    var data =
-                                        searchProvider.listofBranchData[index];
-                                    return GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) => DetailPage(
-                                                    data: data,
-                                                  )),
-                                        );
-                                      },
-                                      child: DataShowContainer(data: data),
-                                    );
-                                  }),
-                            ),
-                    ],
+            searchProvider.totalpage == 0
+                ? Container()
+                : Container(
+                    color: whiteColor,
+                    child:
+                        // Pager(
+                        //   currentPage: searchProvider.currentPage,
+                        //   totalPages: searchProvider.totalpage,
+                        //   onPageChanged: (int index) {
+                        //     searchProvider.changePage(index);
+                        //     searchProvider.isActive = true;
+                        //     searchProvider.getPaginationData(index, context);
+                        //   },
+                        // ),
+                        NumberPaginator(
+                      initialPage: searchProvider.currentPage - 1,
+                      onPageChange: (int index) {
+                        searchProvider.changePage(index + 1);
+                        searchProvider.isActive = true;
+                        searchProvider.getPaginationData(index + 1, context);
+                        print(searchProvider.isActive);
+                      },
+                      numberPages: searchProvider.totalpage,
+                    ),
                   ),
-                ),
-          searchProvider.totalpage == 0
-              ? Container()
-              : Container(
-                  color: whiteColor,
-                  child:
-                      // Pager(
-                      //   currentPage: searchProvider.currentPage,
-                      //   totalPages: searchProvider.totalpage,
-                      //   onPageChanged: (int index) {
-                      //     searchProvider.changePage(index);
-                      //     searchProvider.isActive = true;
-                      //     searchProvider.getPaginationData(index, context);
-                      //   },
-                      // ),
-                      NumberPaginator(
-                    initialPage: searchProvider.currentPage - 1,
-                    onPageChange: (int index) {
-                      searchProvider.changePage(index + 1);
-                      searchProvider.isActive = true;
-                      searchProvider.getPaginationData(index + 1, context);
-                      print(searchProvider.isActive);
-                    },
-                    numberPages: searchProvider.totalpage,
-                  ),
-                ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -126,10 +126,12 @@ class CustomeTextField extends StatelessWidget {
     required this.hintText,
     this.icon = Icons.person,
     required this.controller,
+    this.textInputType = TextInputType.text,
   });
   final String hintText;
   final IconData icon;
   final TextEditingController controller;
+  final TextInputType textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +145,7 @@ class CustomeTextField extends StatelessWidget {
         ),
       ),
       child: TextFormField(
-        keyboardType: TextInputType.text,
+        keyboardType: textInputType,
 
         controller: controller,
         // onFieldSubmitted: onFieldSubmitted,
@@ -314,3 +316,4 @@ const String whatsapp = 'asset/whatsapp.png';
 var csvFile = 'asset/Members.csv';
 const String appLogoIcon = 'asset/app_icon_logo.png';
 const String call = 'asset/call.png';
+const String export = 'asset/export.png';

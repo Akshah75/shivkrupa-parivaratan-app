@@ -3,7 +3,6 @@ import 'package:parivartan_app/constant.dart';
 import 'package:parivartan_app/provider/login_provider.dart';
 import 'package:parivartan_app/provider/search_provider.dart';
 import 'package:parivartan_app/pages/splash/splash_page.dart';
-// import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {

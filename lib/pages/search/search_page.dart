@@ -33,12 +33,14 @@ class SearchPage extends StatelessWidget {
                 hintText: 'Member id',
                 icon: Icons.person,
                 controller: searchProvider.memberId,
+                textInputType: TextInputType.number,
               ),
               const SizedBox(height: 10),
               CustomeTextField(
                 hintText: 'Mobile number',
                 icon: Icons.phone_android,
                 controller: searchProvider.mobileNo,
+                textInputType: TextInputType.number,
               ),
               const SizedBox(height: 10),
               CustomeTextField(
@@ -106,6 +108,14 @@ class SearchPage extends StatelessWidget {
                         Future.delayed(const Duration(seconds: 1), () {
                           Navigator.of(context).pop();
                           searchProvider.isLoading = false;
+                          searchProvider.name.clear();
+                          searchProvider.memberId.clear();
+                          searchProvider.mobileNo.clear();
+                          searchProvider.agentName.clear();
+                          searchProvider.companyName.clear();
+                          searchProvider.address1.clear();
+                          searchProvider.address2.clear();
+                          searchProvider.address3.clear();
                           searchProvider.branchName.clear();
                           searchProvider.name.clear();
                         });

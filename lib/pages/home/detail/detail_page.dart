@@ -4,6 +4,7 @@ import 'package:parivartan_app/pages/home/detail/components/custome_row_text.dar
 import 'package:parivartan_app/utlity/utility.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constant.dart';
+// import 'package:http/http.dart' as http;
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key, this.data});

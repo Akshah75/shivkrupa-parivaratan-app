@@ -14,7 +14,7 @@ Future<void> showAlertDialogg(BuildContext context) async {
       final loginDataProvider =
           Provider.of<LoginProvider>(context, listen: true);
       return AlertDialog(
-        title: const Text('Export Your Filtre Data.'),
+        title: const Text('Export Your Filter Data.'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

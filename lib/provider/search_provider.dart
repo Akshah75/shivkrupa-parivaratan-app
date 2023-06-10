@@ -64,6 +64,8 @@ class SearchProvider extends ChangeNotifier {
         print(data.toString());
         //
         listofBranchData = data;
+        listofBranchData.sort((a, b) => (a['sr_no']).compareTo(b['sr_no']));
+
         print('myData:$listofBranchData');
         isLoading = false;
         notifyListeners();
