@@ -1,6 +1,6 @@
 class AppUrl {
   static var baseUrl = 'https://parivartan.artisansintelligence.com/api';
-  // static var baseUrl = 'http://192.168.1.5:8000/api';
+  // static var baseUrl = 'http://192.168.1.3:8000/api';
   static var loginUrl = '$baseUrl/login';
   static var searchUrl = '$baseUrl/search';
   static var exportUrl = '$baseUrl/export';

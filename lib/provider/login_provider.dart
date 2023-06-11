@@ -72,6 +72,9 @@ class LoginProvider with ChangeNotifier {
     myRepo.exportApi(data, appLoginToken.toString()).then((value) {
       print('value)f${value.toString()}');
       if (value.toString() == 'null') {
+        fileLoading = false;
+        notifyListeners();
+
         Utils.flushBarErrorMessage(
             'Plese filtre? than export your data', context);
       }

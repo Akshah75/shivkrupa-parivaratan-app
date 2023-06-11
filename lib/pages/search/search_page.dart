@@ -55,12 +55,12 @@ class SearchPage extends StatelessWidget {
                 controller: searchProvider.companyName,
               ),
               const SizedBox(height: 10),
-              // CustomeTextField(
-              //   hintText: 'Branch name',
-              //   icon: Icons.person_4_sharp,
-              //   controller: searchProvider.branchName,
-              // ),
-              // const SizedBox(height: 10),
+              CustomeTextField(
+                hintText: 'Branch name',
+                icon: Icons.person_4_sharp,
+                controller: searchProvider.branchName,
+              ),
+              const SizedBox(height: 10),
               CustomeTextField(
                 hintText: 'Address 1',
                 icon: Icons.location_city,

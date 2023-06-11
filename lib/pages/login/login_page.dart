@@ -72,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                     CustomeTextField(
                       hintText: 'Enter Your username',
                       controller: nameController,
+                      textInputType: TextInputType.number,
                     ),
                     const SizedBox(height: 25),
                     PasswordTextField(

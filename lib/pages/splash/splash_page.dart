@@ -31,8 +31,13 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor: whiteColor.withOpacity(0.5),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Image.asset(appLogoIcon),
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: Image.asset(
+          appSplashIcon,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }

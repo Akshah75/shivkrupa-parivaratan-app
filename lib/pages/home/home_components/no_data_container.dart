@@ -42,7 +42,7 @@ class NoDataFoundContainer extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(children: [
             Image.asset(noDataFound),
-            const Text("No Data Found!Search Your Data")
+            const Text("No Data Found!")
           ]),
         ),
       ),

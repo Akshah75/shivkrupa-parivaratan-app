@@ -317,3 +317,4 @@ var csvFile = 'asset/Members.csv';
 const String appLogoIcon = 'asset/app_icon_logo.png';
 const String call = 'asset/call.png';
 const String export = 'asset/export.png';
+const String appSplashIcon = 'asset/splash.jpg';
